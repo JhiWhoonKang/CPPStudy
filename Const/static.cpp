@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -33,6 +34,57 @@ public:
 	const static int SOUTH_KOREA = 4;
 
 };
+
+/*참조 반환 미사용*/
+class Person
+{
+public:
+	auto age() const
+	{
+		return age_;
+	}
+	auto set_age(int age)
+	{
+		age_ = age;
+	}
+private:
+	int age_{};
+};
+
+/*참조 반환 사용*/
+class Team
+{
+public:
+	auto& leader()const	// const 참조 반환
+	{
+		return leader_;	// 값 변경 불가
+	}
+	auto& leader() // 참조 반환
+	{
+		return leader_; // 값 변경 가능
+	}
+private:
+	Person leader_{};
+};
+
+auto nonmutating_func(const vector<Team>& teams)
+{
+	auto tot_age = int{ 0 };
+
+	for (const auto& team : teams)
+	{
+		tot_age += team.leader().age();
+	}
+
+#if 0 // 컴파일 오류
+	for (auto& team : teams)
+	{
+		team.leader().set_age(20);
+	}
+#endif
+}
+
+
 int main(void)
 {
 #if 0
