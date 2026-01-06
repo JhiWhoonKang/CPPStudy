@@ -1,0 +1,43 @@
+# --- Visual Studio 공통 ---
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# --- 빌드 결과물 및 중간 파일 (Build Results) ---
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+
+# --- 컴파일된 바이너리 및 라이브러리 ---
+*.exe
+*.dll
+*.lib
+*.so
+*.dylib
+
+# --- C++ 중간 객체 파일 및 링커 파일 ---
+*.obj
+*.o
+*.lo
+*.idb
+*.pdb
+*.ilk
+*.exp
+*.map
+*.pch
+
+# --- Visual Studio Code (혹시 사용한다면) ---
+.vscode/
+
+# --- OS 생성 파일 (Mac/Windows) ---
+.DS_Store
+Thumbs.db
